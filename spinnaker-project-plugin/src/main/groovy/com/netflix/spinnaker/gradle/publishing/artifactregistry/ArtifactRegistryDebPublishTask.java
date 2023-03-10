@@ -2,11 +2,11 @@ package com.netflix.spinnaker.gradle.publishing.artifactregistry;
 
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
 import com.google.api.client.json.jackson2.JacksonFactory;
+import com.google.api.services.artifactregistry.v1beta2.ArtifactRegistry;
 import com.google.api.services.artifactregistry.v1beta2.ArtifactRegistryScopes;
 import com.google.api.services.artifactregistry.v1beta2.model.ImportAptArtifactsGcsSource;
 import com.google.api.services.artifactregistry.v1beta2.model.ImportAptArtifactsRequest;
 import com.google.api.services.artifactregistry.v1beta2.model.Operation;
-import com.google.api.services.artifactregistry.v1beta2.ArtifactRegistry;
 import com.google.auth.Credentials;
 import com.google.auth.http.HttpCredentialsAdapter;
 import com.google.auth.oauth2.GoogleCredentials;
@@ -15,15 +15,6 @@ import com.google.cloud.storage.*;
 import com.google.common.base.Stopwatch;
 import com.google.common.base.Strings;
 import com.google.common.io.ByteStreams;
-import org.apache.tools.ant.filters.StringInputStream;
-import org.gradle.api.DefaultTask;
-import org.gradle.api.file.RegularFile;
-import org.gradle.api.provider.Provider;
-import org.gradle.api.tasks.Input;
-import org.gradle.api.tasks.InputFile;
-import org.gradle.api.tasks.TaskAction;
-
-import javax.inject.Inject;
 import java.io.IOException;
 import java.nio.channels.ByteChannel;
 import java.nio.channels.WritableByteChannel;
@@ -31,6 +22,14 @@ import java.nio.file.Files;
 import java.security.GeneralSecurityException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import javax.inject.Inject;
+import org.apache.tools.ant.filters.StringInputStream;
+import org.gradle.api.DefaultTask;
+import org.gradle.api.file.RegularFile;
+import org.gradle.api.provider.Provider;
+import org.gradle.api.tasks.Input;
+import org.gradle.api.tasks.InputFile;
+import org.gradle.api.tasks.TaskAction;
 
 class ArtifactRegistryDebPublishTask extends DefaultTask {
 
