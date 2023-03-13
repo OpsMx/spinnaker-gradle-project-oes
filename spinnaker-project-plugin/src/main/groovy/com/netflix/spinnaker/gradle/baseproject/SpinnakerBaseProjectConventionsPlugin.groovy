@@ -23,8 +23,8 @@ class SpinnakerBaseProjectConventionsPlugin implements Plugin<Project> {
         project.plugins.apply(MavenPublishPlugin)
         project.repositories.mavenCentral()
         JavaPluginConvention convention = project.convention.getPlugin(JavaPluginConvention)
-        convention.sourceCompatibility = JavaVersion.VERSION_11
-        convention.targetCompatibility = JavaVersion.VERSION_11
+        convention.sourceCompatibility = JavaVersion.VERSION_17
+        convention.targetCompatibility = JavaVersion.VERSION_17
       }
       project.plugins.withType(JavaLibraryPlugin) {
         JavaPluginConvention convention = project.convention.getPlugin(JavaPluginConvention)
