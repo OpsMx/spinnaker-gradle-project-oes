@@ -3,7 +3,7 @@ name: Branch Build gradle publish
 on:
   push:
     branches:
-    - OES-1.30.x-master-adhoc
+    - adhoc-master
  
 env:
   GRADLE_OPTS: -Dorg.gradle.daemon=false -Xmx6g -Xms6g
