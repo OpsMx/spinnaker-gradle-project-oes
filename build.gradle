@@ -1,5 +1,5 @@
 plugins {
-  id "com.diffplug.spotless" version "5.1.0" apply false
+  id "com.diffplug.spotless" version "6.16.0" apply false
   id "com.gradle.plugin-publish" version "0.12.0" apply false
 }
 
@@ -16,16 +16,21 @@ subprojects {
 
   spotless {
     java {
+      googleJavaFormat('1.15.0')
       eclipse().configFile(rootProject.file('codestyle.xml'))
     }
   }
 
   group = 'io.spinnaker.gradle'
-  sourceCompatibility = JavaVersion.VERSION_11
-  targetCompatibility = JavaVersion.VERSION_11
+  sourceCompatibility = JavaVersion.VERSION_17
+  targetCompatibility = JavaVersion.VERSION_17
 
   dependencies {
     implementation gradleApi()
     implementation localGroovy()
+  }
+
+  tasks.withType(Copy).all {
+    duplicatesStrategy 'exclude'
   }
 }

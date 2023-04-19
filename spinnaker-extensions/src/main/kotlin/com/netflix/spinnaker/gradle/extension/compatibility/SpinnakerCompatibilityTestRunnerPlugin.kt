@@ -52,10 +52,10 @@ class SpinnakerCompatibilityTestRunnerPlugin : Plugin<Project> {
     val versionTestConfigs = spinnakerVersionsClient.resolveVersionAliases(bundle.compatibility.versionTestConfigs)
     versionTestConfigs.forEach { config ->
       val sourceSet = "compatibility-${config.version}"
-      val runtimeConfiguration = "${sourceSet}Runtime"
+      val runtimeConfiguration = "${sourceSet}RuntimeOnly"
       val implementationConfiguration = "${sourceSet}Implementation"
 
-      project.configurations.create(runtimeConfiguration).extendsFrom(project.configurations.getByName("${SourceSet.TEST_SOURCE_SET_NAME}Runtime"))
+      project.configurations.create(runtimeConfiguration).extendsFrom(project.configurations.getByName("${SourceSet.TEST_SOURCE_SET_NAME}RuntimeOnly"))
       project.configurations.create(implementationConfiguration).extendsFrom(project.configurations.getByName("${SourceSet.TEST_SOURCE_SET_NAME}Implementation"))
 
       project.sourceSets.create(sourceSet) {
