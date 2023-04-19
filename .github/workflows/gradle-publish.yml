@@ -3,7 +3,7 @@ name: Branch Build gradle publish
 on:
   push:
     branches:
-    - adhoc-master
+    - OES-1.30.x-master-adhoc
  
 env:
   GRADLE_OPTS: -Dorg.gradle.daemon=false -Xmx6g -Xms6g
@@ -73,7 +73,7 @@ jobs:
              
               done
               
-              sed  s/NEXUSARTIID/spinnaker-extensions/g patch > patchnew
-               cat patchnew >> spinnaker-extensions/build.gradle.kts
+                # sed  s/NEXUSARTIID/spinnaker-extensions/g patch > patchnew
+               #cat patchnew >> spinnaker-extensions/build.gradle.kts
               
                 ./gradlew --no-daemon -PenableCrossCompilerPlugin=true  publish -x test
