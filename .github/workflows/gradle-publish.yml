@@ -1,5 +1,4 @@
 name: Branch Build gradle publish
-
 on:
   push:
     branches:
